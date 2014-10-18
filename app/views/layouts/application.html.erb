@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Imajine | Webdesign | Iphone Apps</title>
+	<!--[if lte IE 8]><%=javascript_include_tag "html5shiv" %><![endif]-->
+	<%= javascript_include_tag "application" %>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= stylesheet_link_tag    "home", :media => "all" %>
+	<!--[if lte IE 8]> <%= stylesheet_link_tag    "v8", :media => "all" %><![endif]-->
+	<!--[if lte IE 9]><%= stylesheet_link_tag    "v9", :media => "all" %><![endif]-->
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="notice" class="centered">
+		<% unless notice.nil? %>
+		<p class="notice" style="margin:0px;"> <%= notice %></p>
+		<% end %>
+		<% unless alert.nil? %>
+	    <p class="alert"><%= alert %></p>
+		<% end %>
+	</div>
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="http://imajine.us#top">Home</a></li>
+					<li><a href="http://imajine.us#work">Work</a></li>
+					<li><a href="http://imajine.us#portfolio">Portfolio</a></li>
+					<li><a href="http://imajine.us#contact">Contact</a></li>
+					<% if user_signed_in? %>
+					 <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+					<% else %>
+					<li> <%= link_to("Client Portal ",:controller => "users", :action => "sign_in")%></li>
+					<% end %>
+				</ul>
+			</nav>
+	<%= yield %>
+	<div class="footer-wrapper">
+		<div class="row">
+			<div class="12u">
+				<hr />
+				<h3>Find us on ...</h3>
+				<ul class="social">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					<!--
+					<li><a href="#" class="icon fa-rss"><span>RSS</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span>Instagram</span></a></li>
+					<li><a href="#" class="icon fa-foursquare"><span>Foursquare</span></a></li>
+					<li><a href="#" class="icon fa-skype"><span>Skype</span></a></li>
+					<li><a href="#" class="icon fa-soundcloud"><span>Soundcloud</span></a></li>
+					<li><a href="#" class="icon fa-youtube"><span>YouTube</span></a></li>
+					<li><a href="#" class="icon fa-blogger"><span>Blogger</span></a></li>
+					<li><a href="#" class="icon fa-flickr"><span>Flickr</span></a></li>
+					<li><a href="#" class="icon fa-vimeo"><span>Vimeo</span></a></li>
+					-->
+				</ul>
+				<hr />
+			</div>
+		</div>
+		<footer>
+			<ul id="copyright">
+				<li>&copy; Imajine. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		<script type="text/javascript">
+			$(function() {
+				$("#toTop").scrollToTop();
+				  $( "#notice" ).fadeOut( 3500, function() {
+					});
+			});
+		</script>
+		</footer>
+	</div>
+</body>
+</html>

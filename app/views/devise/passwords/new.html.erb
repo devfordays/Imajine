@@ -1,0 +1,28 @@
+<div id="login">
+	<article class="container">
+		<div class="row">
+			<div class="6u">
+				<h2>Forgot your password?</h2>
+				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  				<%= devise_error_messages! %>
+  				<div class="row">
+  					<div class="12u field"><%= f.email_field :email, autofocus: true, placeholder: "Email Used to Sign Up" %></div>
+  				</div>
+  				<div class="row">
+  					<ul class="actions">
+  						<li><%= f.submit "Send password reset instructions" %></li>
+  					</ul>
+  				</div>
+  				
+  				<% end %>
+  			</div>
+  			<div class="6u">
+  				<h2>Have account/need new one?</h2>
+  				<%= render "devise/shared/links" %>
+  			</div>
+		</div>
+	</article>
+</div>
+
+
+
